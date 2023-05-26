@@ -281,6 +281,7 @@ export default function ComponentCatalog({ className }: ComponentCatalogProps) {
             </Typography>
           </Box>
         </Box>
+        dedew
       </Box>
       <CreateCodeComponentNodeDialog
         open={!!createCodeComponentDialogOpen}
