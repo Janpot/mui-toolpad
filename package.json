@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@jest/globals": "29.5.0",
-    "@mui/monorepo": "https://github.com/mui/material-ui.git",
+    "@mui/monorepo": "https://github.com/mui/material-ui.git#948b662d19ac0cef5d6062f4af8e256f29eeb61b",
     "@next/eslint-plugin-next": "13.4.7",
     "@playwright/test": "1.35.1",
     "@testing-library/jest-dom": "5.16.5",
