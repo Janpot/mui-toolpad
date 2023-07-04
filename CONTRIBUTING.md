@@ -70,11 +70,11 @@ If your application has dependencies other than `@mui/toolpad`, you have to temp
 
 In some cases you may want to link local toolpad into a project on your laptop.
 
-1. Install dependencies:
+1. In the Toolpad project, install dependencies:
 
-```sh
-yarn install
-```
+   ```sh
+   yarn install
+   ```
 
 1. Run the build in watch mode
 
@@ -82,7 +82,7 @@ yarn install
    yarn dev
    ```
 
-1. In another folder, start a toolpad project using:
+1. In the folder of the project you want to work on, start a toolpad project using:
 
    ```json
    {
@@ -95,9 +95,10 @@ yarn install
        "start": "toolpad start --dev"
      },
      "dependencies": {
-       "@mui/toolpad": "portal:<your-local-toolpad-monorepo>/packages/toolpad"
+       "@mui/toolpad": "*"
      },
      "resolutions": {
+       "@mui/toolpad": "portal:<your-local-toolpad-monorepo>/packages/toolpad",
        "@mui/toolpad-app": "portal:<your-local-toolpad-monorepo>/packages/toolpad-app",
        "@mui/toolpad-core": "portal:<your-local-toolpad-monorepo>/packages/toolpad-core",
        "@mui/toolpad-components": "portal:<your-local-toolpad-monorepo>/packages/toolpad-components",
