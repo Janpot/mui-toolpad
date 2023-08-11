@@ -46,7 +46,7 @@ import {
   ResponseType as AppDomRestResponseType,
 } from '../toolpadDataSources/rest/types';
 import { LocalQuery } from '../toolpadDataSources/local/types';
-import { ProjectEvents, ToolpadProjectOptions } from '../types';
+import { ProjectEvents, Resource, ResourceMeta, ToolpadProjectOptions } from '../types';
 import { Awaitable } from '../utils/types';
 import EnvManager from './EnvManager';
 import FunctionsManager from './FunctionsManager';
@@ -1156,6 +1156,32 @@ class ToolpadProject {
         process.env.TOOLPAD_EXTERNAL_URL || `http://localhost:${process.env.PORT || 3000}`,
       projectDir: this.getRoot(),
       cmd: this.options.dev ? 'dev' : 'start',
+    };
+  }
+
+  async getResources(): Promise<{ resources: ResourceMeta[] }> {
+    const functions = await this.functionsManager.introspect();
+
+    return {
+      resources: functions.files.map((file) => ({
+        id: file.name,
+        kind: 'local',
+        displayName: file.name,
+      })),
+    };
+  }
+
+  async getResource(id: string): Promise<Resource | null> {
+    const functions = await this.functionsManager.introspect();
+    const file = functions.files.find((f) => f.name === id);
+    if (!file) {
+      return null;
+    }
+    return {
+      id: file.name,
+      kind: 'local',
+      displayName: file.name,
+      file,
     };
   }
 }

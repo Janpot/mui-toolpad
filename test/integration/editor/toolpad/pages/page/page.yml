@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: page
+spec:
+  id: v1Sqorq
+  title: Default page
+  content:
+    - component: PageRow
+      name: pageRow
+      children:
+        - component: TextField
+          name: textField
+  queries:
+    - name: query
+      query:
+        kind: local

@@ -13,6 +13,7 @@ import { PaletteMode } from '@mui/material';
 import type * as appDom from './appDom';
 import type { Awaitable, Maybe, WithControlledProp } from './utils/types';
 import type { Rectangle } from './utils/geometry';
+import { FileIntrospectionResult } from './server/functionsTypesWorker';
 
 declare global {
   interface Error {
@@ -213,3 +214,22 @@ export interface ToolpadProjectOptions {
   cmd: 'dev' | 'start' | 'build';
   dev: boolean;
 }
+
+export interface ResourceBase {
+  id: string;
+  displayName: string;
+}
+
+export interface LocalResource extends ResourceBase {
+  kind: 'local';
+  file: FileIntrospectionResult;
+}
+
+export interface FetchResource extends ResourceBase {
+  kind: 'fetch';
+  file: FileIntrospectionResult;
+}
+
+export type Resource = LocalResource | FetchResource;
+
+export type ResourceMeta = Pick<Resource, 'id' | 'displayName' | 'kind'>;

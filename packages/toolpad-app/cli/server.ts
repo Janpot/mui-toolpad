@@ -15,6 +15,8 @@ import { listen } from '@mui/toolpad-utils/http';
 import openBrowser from 'react-dev-utils/openBrowser';
 import { folderExists } from '@mui/toolpad-utils/fs';
 import chalk from 'chalk';
+// @ts-expect-error https://github.com/ivesia/vite-plugin-rewrite-all/pull/2
+import pluginRewriteAll from 'vite-plugin-rewrite-all';
 import { asyncHandler } from '../src/utils/express';
 import { createProdHandler } from '../src/server/toolpadAppServer';
 import {
@@ -229,6 +231,7 @@ async function startServer({
         root: path.resolve(__dirname, '../../src/toolpad'),
         server: { middlewareMode: true },
         plugins: [
+          pluginRewriteAll(), // fix for https://github.com/vitejs/vite/issues/2415
           {
             name: 'toolpad:transform-index-html',
             transformIndexHtml,
@@ -240,7 +243,9 @@ async function startServer({
     } else {
       app.use(
         editorBasename,
-        express.static(path.resolve(__dirname, '../../dist/editor'), { index: false }),
+        express.static(path.resolve(__dirname, '../../dist/editor'), {
+          index: false,
+        }),
         asyncHandler(async (req, res) => {
           const htmlFilePath = path.resolve(__dirname, '../../dist/editor/index.html');
           let html = await fs.readFile(htmlFilePath, { encoding: 'utf-8' });

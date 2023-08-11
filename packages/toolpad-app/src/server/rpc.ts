@@ -58,7 +58,7 @@ export function createRpcHandler(definition: Definition): express.RequestHandler
     asyncHandler(async (req, res) => {
       const parseResult = rpcRequestSchema.safeParse(req.body);
       if (!parseResult.success) {
-        res.status(400).send(fromZodError(parseResult.error));
+        res.status(400).send({ error: fromZodError(parseResult.error) });
         return;
       }
 
@@ -66,7 +66,7 @@ export function createRpcHandler(definition: Definition): express.RequestHandler
 
       if (!hasOwnProperty(definition, type) || !hasOwnProperty(definition[type], name)) {
         // This is important to avoid RCE
-        res.status(404).end();
+        res.status(404).json({ error: new Error(`Method "${name}" not found`) });
         return;
       }
       const method: MethodResolver<any> = definition[type][name];
@@ -119,6 +119,12 @@ export function createRpcServer(project: ToolpadProject) {
       }),
       getVersionInfo: createMethod<typeof project.getVersionInfo>(({ params }) => {
         return project.getVersionInfo(...params);
+      }),
+      getResources: createMethod<typeof project.getResources>(({ params }) => {
+        return project.getResources(...params);
+      }),
+      getResource: createMethod<typeof project.getResource>(({ params }) => {
+        return project.getResource(...params);
       }),
     },
     mutation: {

@@ -1,6 +1,8 @@
 import { parse as superjsonParse } from 'superjson';
 import type { MethodsOf, MethodsOfGroup, RpcRequest, RpcResponse } from './server/rpc';
 
+export class TransportError extends Error {}
+
 function createFetcher(endpoint: string, type: 'query' | 'mutation'): MethodsOfGroup<any> {
   return new Proxy(
     {},
@@ -34,7 +36,14 @@ function createFetcher(endpoint: string, type: 'query' | 'mutation'): MethodsOfG
             return superjsonParse(response.result);
           }
 
-          throw new Error(`HTTP ${res.status}`);
+          let cause: unknown;
+          try {
+            cause = await res.json();
+          } catch {
+            // ignore
+          }
+
+          throw new Error(`HTTP ${res.status}`, { cause });
         };
       },
     },

@@ -1,23 +1,36 @@
-import { CircularProgress, Box, SxProps } from '@mui/material';
+import { CircularProgress, SxProps, styled } from '@mui/material';
 import * as React from 'react';
+import ErrorAlert from '../toolpad/AppEditor/PageEditor/ErrorAlert';
+
+export const Centered = styled('div')({
+  height: '100%',
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+});
 
 export interface CenteredSpinnerProps {
   sx?: SxProps;
 }
 
-export default function CenteredSpinner({ sx }: CenteredSpinnerProps) {
+export function CenteredSpinner({ sx }: CenteredSpinnerProps) {
   return (
-    <Box
-      sx={{
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        ...sx,
-      }}
-    >
+    <Centered sx={sx}>
       <CircularProgress />
-    </Box>
+    </Centered>
+  );
+}
+
+export interface CenteredErrorProps {
+  sx?: SxProps;
+  error: Error;
+}
+
+export function CenteredError({ sx, error }: CenteredErrorProps) {
+  return (
+    <Centered sx={sx}>
+      <ErrorAlert sx={{ m: 1 }} error={error} />
+    </Centered>
   );
 }

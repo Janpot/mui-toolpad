@@ -1,6 +1,9 @@
 import { parentPort, workerData } from 'worker_threads';
 import invariant from 'invariant';
 import { createServer, Plugin } from 'vite';
+// @ts-expect-error https://github.com/ivesia/vite-plugin-rewrite-all/pull/2
+import pluginRewriteAll from 'vite-plugin-rewrite-all';
+
 import {
   getHtmlContent,
   postProcessHtml,
@@ -70,7 +73,10 @@ export async function createDevServer({ outDir, config, root, base }: ToolpadApp
     dev: true,
     root,
     base,
-    plugins: [devServerPlugin(root, config)],
+    plugins: [
+      pluginRewriteAll(), // fix for https://github.com/vitejs/vite/issues/2415
+      devServerPlugin(root, config),
+    ],
     getComponents,
   });
   const devServer = await createServer(viteConfig);

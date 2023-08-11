@@ -117,6 +117,7 @@
     "superjson": "1.13.1",
     "typescript": "5.1.6",
     "vite": "4.4.8",
+    "vite-plugin-rewrite-all": "1.0.1",
     "vm-browserify": "^1.1.2",
     "whatwg-url": "13.0.0",
     "ws": "8.13.0",
