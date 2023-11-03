@@ -65,14 +65,6 @@ export default function AppCanvas({
     };
   }, []);
 
-  React.useEffect(
-    () => () => {
-      appRootCleanupRef.current?.();
-      appRootCleanupRef.current = undefined;
-    },
-    [],
-  );
-
   // Notify host after every render
   React.useEffect(() => {
     if (appRootRef.current) {
