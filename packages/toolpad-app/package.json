@@ -36,13 +36,11 @@
     },
     ".": {
       "types": "./dist/exports/index.d.ts",
-      "import": "./dist/exports/index.mjs",
-      "require": "./dist/exports/index.js"
+      "import": "./dist/exports/index.mjs"
     },
     "./*": {
       "types": "./dist/exports/*.d.ts",
-      "import": "./dist/exports/*.mjs",
-      "require": "./dist/exports/*.js"
+      "import": "./dist/exports/*.mjs"
     }
   },
   "dependencies": {
