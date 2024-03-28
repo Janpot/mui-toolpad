@@ -57,9 +57,6 @@ importers:
       '@mui/monorepo':
         specifier: github:mui/material-ui#0102a9579628d48d784511a562b7b72f0f51847e
         version: github.com/mui/material-ui/0102a9579628d48d784511a562b7b72f0f51847e
-      '@mui/x-charts':
-        specifier: 7.0.0
-        version: 7.0.0(@mui/material@5.15.14)(react-dom@18.2.0)(react@18.2.0)
       '@next/eslint-plugin-next':
         specifier: 14.1.4
         version: 14.1.4
@@ -2545,7 +2542,7 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.24.1
-      '@mui/material': 5.15.14(@emotion/react@11.11.3)(@emotion/styled@11.11.0)(@types/react@18.2.73)(react-dom@18.2.0)(react@18.2.0)
+      '@mui/material': 5.15.14(@emotion/react@11.11.4)(@emotion/styled@11.11.0)(@types/react@18.2.73)(react-dom@18.2.0)(react@18.2.0)
       '@types/react': 18.2.73
       react: 18.2.0
     dev: false
@@ -3231,41 +3228,6 @@ packages:
     transitivePeerDependencies:
       - '@types/react'
     dev: false
-
-  /@mui/x-charts@7.0.0(@mui/material@5.15.14)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-pL/HtRuv4X6mHPyFV54K3ZuGRx/d99uhY4MNVtCSUl3mR4r9uc4QOdhQabnrd7C2x4l0+01ED6MCdXXEIFEtMg==}
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      '@emotion/react': ^11.9.0
-      '@emotion/styled': ^11.8.1
-      '@mui/material': ^5.15.14
-      react: ^17.0.0 || ^18.0.0
-      react-dom: ^17.0.0 || ^18.0.0
-    peerDependenciesMeta:
-      '@emotion/react':
-        optional: true
-      '@emotion/styled':
-        optional: true
-    dependencies:
-      '@babel/runtime': 7.24.1
-      '@mui/base': 5.0.0-beta.40(@types/react@18.2.73)(react-dom@18.2.0)(react@18.2.0)
-      '@mui/material': 5.15.14(react-dom@18.2.0)(react@18.2.0)
-      '@mui/system': 5.15.14(react@18.2.0)
-      '@mui/utils': 5.15.14(@types/react@18.2.73)(react@18.2.0)
-      '@react-spring/rafz': 9.7.3
-      '@react-spring/web': 9.7.3(react-dom@18.2.0)(react@18.2.0)
-      clsx: 2.1.0
-      d3-color: 3.1.0
-      d3-delaunay: 6.0.4
-      d3-interpolate: 3.0.1
-      d3-scale: 4.0.2
-      d3-shape: 3.2.0
-      prop-types: 15.8.1
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - '@types/react'
-    dev: true
 
   /@mui/x-data-grid-pro@6.19.8(@mui/material@5.15.14)(@mui/system@5.15.14)(@types/react@18.2.73)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-G1mr+AUoIxxU0+Tgus5wk2uPVqtz9Ij3Ta20bhmuDFi78fvDdyHwN52K913Ob9dQS+kfeVDhvcJYN7gN6jz4DQ==}
@@ -4070,6 +4032,7 @@ packages:
       '@react-spring/shared': 9.7.3(react@18.2.0)
       '@react-spring/types': 9.7.3
       react: 18.2.0
+    dev: false
 
   /@react-spring/core@9.7.3(react@18.2.0):
     resolution: {integrity: sha512-IqFdPVf3ZOC1Cx7+M0cXf4odNLxDC+n7IN3MDcVCTIOSBfqEcBebSv+vlY5AhM0zw05PDbjKrNmBpzv/AqpjnQ==}
@@ -4080,9 +4043,11 @@ packages:
       '@react-spring/shared': 9.7.3(react@18.2.0)
       '@react-spring/types': 9.7.3
       react: 18.2.0
+    dev: false
 
   /@react-spring/rafz@9.7.3:
     resolution: {integrity: sha512-9vzW1zJPcC4nS3aCV+GgcsK/WLaB520Iyvm55ARHfM5AuyBqycjvh1wbmWmgCyJuX4VPoWigzemq1CaaeRSHhQ==}
+    dev: false
 
   /@react-spring/shared@9.7.3(react@18.2.0):
     resolution: {integrity: sha512-NEopD+9S5xYyQ0pGtioacLhL2luflh6HACSSDUZOwLHoxA5eku1UPuqcJqjwSD6luKjjLfiLOspxo43FUHKKSA==}
@@ -4091,9 +4056,11 @@ packages:
     dependencies:
       '@react-spring/types': 9.7.3
       react: 18.2.0
+    dev: false
 
   /@react-spring/types@9.7.3:
     resolution: {integrity: sha512-Kpx/fQ/ZFX31OtlqVEFfgaD1ACzul4NksrvIgYfIFq9JpDHFwQkMVZ10tbo0FU/grje4rcL4EIrjekl3kYwgWw==}
+    dev: false
 
   /@react-spring/web@9.7.3(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-BXt6BpS9aJL/QdVqEIX9YoUy8CE6TJrU0mNCqSoxdXlIeNcEBWOfIyE6B14ENNsyQKS3wOWkiJfco0tCr/9tUg==}
@@ -4107,6 +4074,7 @@ packages:
       '@react-spring/types': 9.7.3
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /@remix-run/router@1.15.0:
     resolution: {integrity: sha512-HOil5aFtme37dVQTB6M34G95kPM3MMuqSmIRVCC52eKV+Y/tGSqw9P3rWhlAx6A+mz+MoX+XxsGsNJbaI5qCgQ==}
@@ -7089,6 +7057,7 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       delaunator: 5.0.1
+    dev: false
 
   /d3-ease@3.0.1:
     resolution: {integrity: sha512-wR/XK3D3XcLIZwpbvQwQ5fK+8Ykds1ip7A2Txe0yxncXSdq1L9skcG7blcedkOX+ZcgxGAmLX1FrRGbADwzi0w==}
@@ -7311,6 +7280,7 @@ packages:
     resolution: {integrity: sha512-8nvh+XBe96aCESrGOqMp/84b13H9cdKbG5P2ejQCh4d4sK9RL4371qou9drQjMhvnPmhWl5hnmqbEE0fXr9Xnw==}
     dependencies:
       robust-predicates: 3.0.2
+    dev: false
 
   /delayed-stream@1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
@@ -13273,6 +13243,7 @@ packages:
 
   /robust-predicates@3.0.2:
     resolution: {integrity: sha512-IXgzBWvWQwE6PrDI05OvmXUIruQTcoMDzRsOd5CDvHCVLcLHMTSYvOK5Cm46kWqlV3yAbuSpBZdJ5oP5OUoStg==}
+    dev: false
 
   /rollup@4.13.1:
     resolution: {integrity: sha512-hFi+fU132IvJ2ZuihN56dwgpltpmLZHZWsx27rMCTZ2sYwrqlgL5sECGy1eeV2lAihD8EzChBVVhsXci0wD4Tg==}
