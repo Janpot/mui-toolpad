@@ -1,7 +1,8 @@
 import path from 'path';
 import { PackageJson } from './packageType';
 
-interface GenerateProjectOptions {
+export interface GenerateProjectOptions {
+  version?: string;
   name: string;
 }
 
@@ -208,10 +209,10 @@ export default function NavigateButton() {
       react: '^18',
       'react-dom': '^18',
       next: '^14',
-      '@toolpad/core': 'latest',
-      '@mui/material': 'next',
-      '@mui/material-nextjs': 'next',
-      '@mui/icons-material': 'next',
+      '@toolpad/core': options.version ?? 'latest',
+      '@mui/material': '^5',
+      '@mui/material-nextjs': '^5',
+      '@mui/icons-material': '^5',
       '@emotion/react': '^11',
       '@emotion/styled': '^11',
       '@emotion/cache': '^11',
