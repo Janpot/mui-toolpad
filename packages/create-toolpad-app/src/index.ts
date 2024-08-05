@@ -17,6 +17,9 @@ import generateProject from './generateProject';
 import writeFiles from './writeFiles';
 import { downloadAndExtractExample } from './examples';
 
+/**
+ * Find package.json of the create-toolpad-app package
+ */
 async function findCtaPackageJson() {
   const ctaPackageJsonPath = path.resolve(__dirname, '../package.json');
   const content = await fs.readFile(ctaPackageJsonPath, 'utf8');
